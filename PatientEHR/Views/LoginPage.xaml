@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PatientEHR.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <StackLayout FlexLayout.Basis="15%">
+                    <Label Text="&#xe6d4;"
+                           FontFamily="iconfont"
+                           FontSize="30"
+                           TextColor="#85aa35"
+                           HorizontalOptions="End"
+                           Margin="30"
+                         >
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SettingClicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="20%">
+                    <!--title-->
+                    <Label Text="高知家＠ライン"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           TextColor="#85aa35"
+                           FontSize="32"/>
+                <Label Text="はたまるねっと"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="#85aa35"
+                       FontSize="32"/>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="60%"  Padding="90,0,90,0">
+                    <!--userName-->
+                <Label Text="メールアドレス"   FontSize="Subtitle"/>
+                    <Entry Text="{Binding UserName,Mode=TwoWay}" 
+                           IsSpellCheckEnabled="False"
+                           IsTextPredictionEnabled="False"
+                           ClearButtonVisibility="WhileEditing" FontSize="Medium"  x:Name="txt_LoginId"/>
+                    <!--password-->
+                    <Label Text="パスワード"   FontSize="Subtitle"/>
+                    <Entry Text="{Binding Password,Mode=TwoWay}" ClearButtonVisibility="WhileEditing" IsPassword="true" FontSize="Medium"  />
+                    <!--login button-->
+                    <Button VerticalOptions="Center" x:Name="LoginBtn" BackgroundColor="#689e39"  CornerRadius="8" Text="ログイン" PropertyChanged="BtnProChanged" FontSize="Title" Margin="0,60,0,0"  Command="{Binding LoginCommand}"/>
+                </StackLayout>
+                <!--copyright-->
+                <StackLayout FlexLayout.Basis="5%">
+                <Label Text="Copyright(c) Pacific Medical Co.,Ltd All rights reserved."
+                           FontSize="Small"
+                           VerticalOptions="End"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+        </FlexLayout>
+
+ 
+    </ContentPage.Content>
+</ContentPage>

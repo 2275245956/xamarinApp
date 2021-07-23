@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PatientEHR.Views.NoticePage" Title="お知らせ">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding ItemList}" RowHeight="70" SeparatorColor="{StaticResource Primary}" ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="2">
+                            <StackLayout Padding="2" VerticalOptions="Center">
+                                <FlexLayout Direction="Row">
+                                    <StackLayout FlexLayout.Basis="95%" Orientation="Vertical">
+                                        <Label   Text="{Binding Title}" FontSize="20" MaxLines="1"/>
+                                        <Label   Text="{Binding NoticeDateTime,StringFormat='{0:yyyy/MM/dd}'}" FontSize="16"/>
+                                    </StackLayout>
+                                    <StackLayout  FlexLayout.Basis="5%">
+                                        <Label  Text="&#xe66c;"
+                                                FontFamily="iconfont"
+                                                FontSize="16"
+                                                TextColor="{StaticResource Primary}"
+                                                VerticalOptions="FillAndExpand"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </FlexLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:PatientEHR.Controls"
+             xmlns:viewmodels="clr-namespace:PatientEHR.ViewModels"
+             x:DataType="viewmodels:TreamentDetailViewModel"
+             x:Class="PatientEHR.Views.TreatmentDetailPage"
+             Title="診療記録">
+    <StackLayout Spacing="0">
+        <StackLayout BackgroundColor="#eee" Padding="30,5,0,5">
+            <Label Text="{Binding DetailTitle}" VerticalTextAlignment="Center" FontSize="20"/>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <!--SOAP-->
+                <!--<StackLayout>
+                    <Label Text="【SOAP】" FontSize="Large" TextColor="Black"/>
+                    <controls:SOAPView  SoapModel="{Binding Soap}" SoapFileModel="{Binding SoapFiles}"/>
+                </StackLayout>-->
+
+                <!--オーダー情報-->
+                <StackLayout>
+                    <Label Text="【オーダー情報】" FontSize="Large" TextColor="Black"/>
+                    <controls:PrescriptionView  OrderModel="{Binding  PreScriptionList}"/>
+                    <controls:InjectionView  OrderModel="{Binding  InjectionList}"/>
+                    <controls:PhysiologicalTestView  OrderModel="{Binding  PhysiologicalTestList}"/>
+                    <controls:RadiographyView  OrderModel="{Binding  RadiographyList}"/>
+                    <controls:EndoscopeView  OrderModel="{Binding  EndoscopeList}"/>
+                    <controls:LaboratoryTestView  OrderModel="{Binding  LaboratoryTestList}"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

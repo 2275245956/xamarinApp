@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientEHR.Views.AuthenticationPage"
+             BackgroundColor="White"
+             >
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" Padding="0,0,0,20">
+            <StackLayout FlexLayout.Basis="20%" Padding="0,30,0,0" VerticalOptions="Center">
+                <TableView Intent="Settings" BackgroundColor="White">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal"   BackgroundColor="#e0e0e0">
+                                    <Label Text="メールアドレスによる本人確認"
+                                             FontSize="18"
+                                             Padding="10"
+                                           />
+                                    <Label Text="&#xe679;"
+                                           FontSize="20"  
+                                           VerticalOptions="CenterAndExpand"
+                                           FontFamily="iconfont"
+                                           HorizontalOptions="EndAndExpand"
+                                           Padding="10"
+                                           TextColor="{StaticResource Primary}"
+                                           >
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BackBtnTapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                 
+            </StackLayout>
+
+            <StackLayout Margin="20,0,10,10"  FlexLayout.Basis="25%">
+                <Label Text="登録されているメールアドレス宛に、「認証コード」をお送りしました。"
+                   FontSize="20"/>
+                <Label Text="メール本文に記載されている「認証コード」を入力してください。"
+                   FontSize="20" Margin="0,0,0,10"/>
+             
+            </StackLayout>
+            <StackLayout Padding="20,0,0,0"  FlexLayout.Basis="10%">
+                <Label Text="※「認証コード」の有効期限は、メールをお送りしてから10分です。"
+                   TextColor="Red"
+                   FontSize="16"/>
+            </StackLayout>
+         
+            <StackLayout  Padding="50,0,50,0"  FlexLayout.Basis="25%">
+                <Label Text="認証コード"
+                   FontSize="20"/>
+                <Entry FontSize="25" x:Name="CodeInput" Text="{Binding CheckCode,Mode=TwoWay}"
+                           TextColor="{StaticResource Primary}"
+                       Keyboard="Numeric"/>
+            </StackLayout>
+            <StackLayout Padding="50,0,50,0"   FlexLayout.Basis="20%" Spacing="20" >
+                <Button  Text="認証する" TextColor="Black" FontSize="16" BorderColor="#4a4a4a"  BackgroundColor="#689e39" CornerRadius="10" BorderWidth="2" Command="{Binding CheckCommand}"/>
+                <Button x:Name="sendCodeAgainBtn" Text="認証コードを再送" TextColor="Black" FontSize="16" BorderColor="#4a4a4a"  BackgroundColor="#689e39" CornerRadius="10" BorderWidth="2" Command="{Binding SendAgainCommand}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

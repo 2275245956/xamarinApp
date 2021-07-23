@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientEHR.Views.ServerConfigPage"
+             Title="設定">
+    <ListView x:Name="servicesList"  SeparatorColor="{StaticResource Primary}"   ItemsSource="{Binding Servers}" RowHeight="80" ItemSelected="OnServerSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ContentView Padding="5">
+                        <StackLayout 
+                           Padding="10" VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ServerPath}"
+                                       IsVisible="false"
+                                   FontSize="Subtitle"
+                                   VerticalOptions="Center" />
+                                <Label Text="{Binding ServerName}"
+                                   FontSize="Subtitle"
+                                   VerticalOptions="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</ContentPage>

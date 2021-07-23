@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PatientEHR.Views.SettingPage" Title="設定">
+    <StackLayout Padding="0,0,0,0" Spacing="0">
+        <ListView x:Name="trListView" ItemsSource="{Binding SettingItems}"  SeparatorColor="{StaticResource Primary}"  ItemTapped="TrListView_ItemTapped" RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="2">
+                            <StackLayout Padding="10" VerticalOptions="Center">
+                                <FlexLayout Direction="Row">
+                                    <!--hidden feild-->
+                                    <Label Text="{Binding SettingKey}"
+                                           FontSize="20"
+                                           IsVisible="false" 
+                                           FlexLayout.Basis="2"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                   />
+                                    <!--date-->
+                                    <Label Text="{Binding SettingName}"
+                                           FontSize="20"
+                                           FlexLayout.Basis="95%" 
+                                           VerticalTextAlignment="Center"/>
+                                    <!--arrowRight-->
+                                    <Label  Text="&#xe66c;"
+                                            FontFamily="iconfont"
+                                            FontSize="Medium"
+                                            TextColor="{StaticResource Primary}"
+                                            FlexLayout.Basis="5%" 
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="end"/>
+                                </FlexLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

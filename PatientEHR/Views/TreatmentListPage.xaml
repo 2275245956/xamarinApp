@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PatientEHR.Views.TreatmentListPage" Title="診療記録一覧">
+
+    <StackLayout>
+        <ListView x:Name="trListView" ItemsSource="{Binding trList}" SeparatorColor="{StaticResource Primary}" RowHeight="50"  ItemTapped="trListViewTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="2">
+                            <StackLayout Padding="2" VerticalOptions="Center" Spacing="0">
+                                <FlexLayout Direction="Row">
+                                    <!--hidden feild-->
+                                    <Label Text="{Binding MedicalHistoryID}"
+                                           FontSize="Small"
+                                           IsVisible="false" 
+                                           FlexLayout.Basis="0"
+                                           VerticalTextAlignment="Center"
+                                           MaxLines="1"
+                                           HorizontalTextAlignment="Center"
+                                   />
+                                    <!--date-->
+                                    <Label Text="{Binding ConsultDateStr}"
+                                           FontSize="Small"
+                                           FlexLayout.Basis="35%" 
+                                           VerticalTextAlignment="Center"
+                                           MaxLines="1"
+                                           HorizontalTextAlignment="Center"
+                                           />
+                                    <!--officeName-->
+                                    <Label Text="{Binding OfficeName}"
+                                           FontSize="Small"
+                                           FlexLayout.Basis="35%"  
+                                           VerticalTextAlignment="Center"
+                                           MaxLines="1"
+                                           HorizontalTextAlignment="Center"
+                                           />
+                                    <!--Depe-->
+                                    <Label Text="{Binding SectionName}"
+                                           FontSize="Small"
+                                           FlexLayout.Basis="22%"
+                                           MaxLines="1"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           />
+                                    <!--DrName-->
+                                    <Label Text="{Binding DrName}"
+                                           FontSize="Small"
+                                           MaxLines="1"
+                                           FlexLayout.Basis="23%"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           />
+                                    <!--arrowRight-->
+                                    <Label  Text="&#xe66c;"
+                                            FontFamily="iconfont"
+                                            FontSize="Subtitle"
+                                            FlexLayout.Basis="8%" 
+                                            TextColor="{StaticResource Primary}"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Start"/>
+                                </FlexLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+
+
+  </ContentPage>

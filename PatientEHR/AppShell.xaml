@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:PatientEHR.Views"
+       xmlns:controls="clr-namespace:PatientEHR.Controls"
+       Title="PatientEHR"
+       x:Class="PatientEHR.AppShell"
+       CurrentItem="{x:Reference loginItem}"       
+       FlyoutBackgroundImage="xamarin_logo.png"
+       FlyoutBackgroundImageAspect="AspectFill"
+       FlyoutHeaderBehavior="Scroll"
+       >
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <!--<TabBar>
+        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </TabBar>-->
+
+    <!--<MenuItem Text="Help"
+              IconImageSource="icon_about.png"
+              Routing.Route="AboutPage"
+              Command="Help"
+              CommandParameter="https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell" />-->
+
+    <!--<MenuItem Text="About"
+              IconImageSource="icon_about.png"
+              Routing.Route="NoticePage"
+              Command="About"
+              CommandParameter="https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell" />-->
+
+
+    <!--<FlyoutItem Title="About" 
+                Icon="icon_about.png">
+        <Tab>
+            <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Feed"
+                Icon="icon_feed.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+        </Tab>
+    </FlyoutItem>-->
+
+    <FlyoutItem Title="診療記録" 
+                Icon="treamentlist.png">
+        <Tab>
+            <ShellContent Route="TreatmentListPage" ContentTemplate="{DataTemplate local:TreatmentListPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="基本情報"
+                Icon="patientInfo.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:PatientInfoPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="お知らせ"
+                Icon="notice.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:NoticePage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="設定"
+                Icon="setting.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:SettingPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <!--<FlyoutItem Title="テスト"
+                Icon="icon_feed.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <MenuItem Text="Learn more"
+            IconImageSource="icon_about.png"
+            Command="{Binding OpenWebCommand}"
+            CommandParameter="https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell" />-->
+
+    <MenuItem Text="ログアウト"
+            IconImageSource="icon_about.png"
+            Command="{Binding LogoutCommand}"/>
+    <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+    <TabBar>
+        <ShellContent Route="LoginPage" x:Name="loginItem" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+</Shell>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PatientEHR.Controls.SOAPView">
+  <ContentView.Content>
+        <StackLayout x:Name="Soap_layout" VerticalOptions="FillAndExpand">
+            <FlexLayout Direction="Row"  HorizontalOptions="Start">
+                <Label FlexLayout.Basis="15%" Text="S:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <Label  FlexLayout.Basis="90%"  x:Name="SOAP_S"  FontSize="16" VerticalTextAlignment="End"/>
+            </FlexLayout>
+
+            <FlexLayout Direction="Row"  HorizontalOptions="Start">
+                <Label FlexLayout.Basis="15%" Text="O:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <Label  FlexLayout.Basis="90%"  x:Name="SOAP_O" FontSize="16" VerticalTextAlignment="End"/>
+            </FlexLayout>
+
+            <FlexLayout Direction="Row" HorizontalOptions="Start">
+                <Label FlexLayout.Basis="15%" Text="A:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <Label  FlexLayout.Basis="90%" x:Name="SOAP_A" FontSize="16" VerticalTextAlignment="End"/>
+            </FlexLayout>
+
+            <FlexLayout Direction="Row" HorizontalOptions="Start">
+                <Label FlexLayout.Basis="15%" Text="P:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <Label  FlexLayout.Basis="90%" x:Name="SOAP_P"  FontSize="16" VerticalTextAlignment="End"/>
+            </FlexLayout>
+
+            <FlexLayout Direction="Row" HorizontalOptions="Start">
+                <Label FlexLayout.Basis="15%" Text="メモ:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <Label  FlexLayout.Basis="90%" x:Name="SOAP_Note"  FontSize="16" VerticalTextAlignment="End"/>
+            </FlexLayout>
+            <FlexLayout  Direction="Row" HorizontalOptions="Start" x:Name="soap_pic">
+                <Label FlexLayout.Basis="15%" Text="図:" FontSize="16" VerticalTextAlignment="Start" HorizontalTextAlignment="End" />
+                <StackLayout  FlexLayout.Basis="90%" x:Name="Soapfile_layout" Spacing="10">
+
+                </StackLayout>
+            </FlexLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
